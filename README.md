@@ -2,7 +2,8 @@
 
 QuantumCalc is a premium, high-fidelity scientific calculator web application modeled after next-generation AI operating systems. The interface draws visual inspiration from the Iron Man JARVIS HUD, Tesla dashboards, and Apple Vision Pro glassmorphism design layouts.
 
-**Created by:** [Katari Anil](https://github.com/katari-Anil)
+**Created by:** [Katari Anil](https://github.com/katari-Anil)  
+**Live Production URL:** [https://quantumcalc-beta.vercel.app/](https://quantumcalc-beta.vercel.app/)
 
 ---
 
