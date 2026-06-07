@@ -1,0 +1,41 @@
+/* Color Space Theme Configurations */
+
+[data-theme="dark"] {
+    --bg-fallback: #050b14;
+    --text-main: #e2f1ff;
+    --text-muted: #708ea6;
+    
+    --glass-bg: rgba(10, 22, 38, 0.45);
+    --glass-border: rgba(0, 183, 255, 0.15);
+    --inner-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05);
+    
+    --key-bg: rgba(255, 255, 255, 0.02);
+    --key-border: rgba(0, 183, 255, 0.08);
+    --key-hover-bg: rgba(0, 183, 255, 0.08);
+    
+    --neon-accent: #00b7ff;
+    --neon-accent-rgb: 0, 183, 255;
+    --neon-accent-glow: rgba(0, 183, 255, 0.4);
+    --neon-accent-alpha: rgba(0, 183, 255, 0.1);
+    --neon-shadow-soft: 0 8px 32px 0 rgba(0, 183, 255, 0.05);
+}
+
+[data-theme="light"] {
+    --bg-fallback: #f4f7fc;
+    --text-main: #0c1a30;
+    --text-muted: #5c6f84;
+    
+    --glass-bg: rgba(255, 255, 255, 0.65);
+    --glass-border: rgba(0, 119, 255, 0.15);
+    --inner-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.6);
+    
+    --key-bg: rgba(0, 119, 255, 0.03);
+    --key-border: rgba(0, 119, 255, 0.1);
+    --key-hover-bg: rgba(0, 119, 255, 0.08);
+    
+    --neon-accent: #0066ff;
+    --neon-accent-rgb: 0, 102, 255;
+    --neon-accent-glow: rgba(0, 102, 255, 0.3);
+    --neon-accent-alpha: rgba(0, 102, 255, 0.08);
+    --neon-shadow-soft: 0 8px 32px 0 rgba(0, 102, 255, 0.05);
+}

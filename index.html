@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuantumCalc // Next-Gen AI Scientific OS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Rajdhani:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+    <canvas id="three-canvas"></canvas>
+
+    <div class="app-container">
+        
+        <header class="hud-navbar">
+            <div class="logo-area">
+                <div class="quantum-core"></div>
+                <h1>QUANTUM<span>CALC</span></h1>
+                <span class="os-version">v2.0.26_OS</span>
+            </div>
+            <div class="hud-controls">
+                <button id="voice-toggle-btn" class="hud-btn" title="Toggle Voice Recognition" aria-label="Toggle Voice Control">
+                    <svg viewBox="0 0 24 24" width="20" height="20" class="icon"><path fill="currentColor" d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z"/></svg>
+                    <span class="status-dot"></span>
+                </button>
+                <button id="audio-toggle-btn" class="hud-btn" title="Toggle Audio Feedback" aria-label="Toggle Audio">
+                    <svg viewBox="0 0 24 24" width="20" height="20" class="icon" id="audio-icon"><path fill="currentColor" d="M14,3.23V5.29C16.89,6.15 19,8.83 19,12C19,15.17 16.89,17.85 14,18.71V20.77C18,19.86 21,16.28 21,12C21,7.72 18,4.14 14,3.23M16.5,12C16.5,10.23 15.5,8.71 14,7.97V16C15.5,15.29 16.5,13.77 16.5,12M11,21L6,16H2V8H6L11,3V21Z"/></svg>
+                </button>
+                <button id="theme-toggle-btn" class="hud-btn" title="Toggle System Spectrum" aria-label="Toggle Theme">
+                    <svg viewBox="0 0 24 24" width="20" height="20" class="icon"><path fill="currentColor" d="M12,18C11.11,18 10.26,17.8 9.5,17.45C11.56,16.5 13,14.42 13,12C13,9.58 11.56,7.5 9.5,6.55C10.26,6.2 11.11,6 12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18M20,8.69V4H15.31L12,0.69L8.69,4H4V8.69L0.69,12L4,15.31V20H8.69L12,23.31L15.31,20H20V15.31L23.31,12L20,8.69Z"/></svg>
+                </button>
+            </div>
+        </header>
+
+        <main class="workspace">
+            
+            <section class="glass-card calculator-core-panel">
+                <div class="panel-header">
+                    <span class="panel-title">CORE PROCESSSOR UNIT</span>
+                    <div class="scanner-line"></div>
+                </div>
+                
+                <div class="display-terminal">
+                    <div class="expression-line" id="calc-expression"></div>
+                    <div class="output-line" id="calc-display">0</div>
+                    <div class="terminal-status">
+                        <span id="voice-indicator" class="hidden">SYS_LISTENING...</span>
+                        <span id="calc-mode-indicator">RAD</span>
+                    </div>
+                </div>
+
+                <div class="keypad-matrix">
+                    <button class="key func-key" data-action="clear">AC</button>
+                    <button class="key func-key" data-action="backspace">DEL</button>
+                    <button class="key func-key" data-action="toggle-deg">DEG</button>
+                    <button class="key op-key" data-action="bracket-left">(</button>
+                    <button class="key op-key" data-action="bracket-right">)</button>
+
+                    <button class="key math-key" data-val="sin(">sin</button>
+                    <button class="key math-key" data-val="cos(">cos</button>
+                    <button class="key math-key" data-val="tan(">tan</button>
+                    <button class="key math-key" data-val="^">x<sup>y</sup></button>
+                    <button class="key math-key" data-val="sqrt(">√</button>
+
+                    <button class="key math-key" data-val="log(">log</button>
+                    <button class="key math-key" data-val="ln(">ln</button>
+                    <button class="key math-key" data-val="*0.01">%</button>
+                    <button class="key math-key" data-val="fact(">x!</button>
+                    <button class="key op-key" data-action="operator" data-val="/">÷</button>
+
+                    <button class="key math-key" data-val="pi">π</button>
+                    <button class="key num-key" data-val="7">7</button>
+                    <button class="key num-key" data-val="8">8</button>
+                    <button class="key num-key" data-val="9">9</button>
+                    <button class="key op-key" data-action="operator" data-val="*">×</button>
+
+                    <button class="key math-key" data-val="e">e</button>
+                    <button class="key num-key" data-val="4">4</button>
+                    <button class="key num-key" data-val="5">5</button>
+                    <button class="key num-key" data-val="6">6</button>
+                    <button class="key op-key" data-action="operator" data-val="-">-</button>
+
+                    <button class="key func-key" id="copy-btn" data-action="copy" title="Copy Output">
+                        <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"/></svg>
+                    </button>
+                    <button class="key num-key" data-val="1">1</button>
+                    <button class="key num-key" data-val="2">2</button>
+                    <button class="key num-key" data-val="3">3</button>
+                    <button class="key op-key" data-action="operator" data-val="+">+</button>
+
+                    <button class="key math-key" data-val="ans">Ans</button>
+                    <button class="key num-key" data-val="0">0</button>
+                    <button class="key num-key" data-val=".">.</button>
+                    <button class="key equal-key" id="execute-btn" data-action="evaluate">=</button>
+                </div>
+            </section>
+
+            <div class="secondary-deck">
+                
+                <section class="glass-card ai-assistant-panel">
+                    <div class="panel-header">
+                        <span class="panel-title">SYNAPTIC AI CO-PROCESSOR</span>
+                        <div class="pulse-node"></div>
+                    </div>
+                    <div class="ai-container">
+                        <div class="ai-input-wrapper">
+                            <input type="text" id="ai-input-field" placeholder="Input quantum expression for breakdown... (e.g. sin(45) * sqrt(16))">
+                            <button id="ai-solve-btn" class="ai-action-btn">SOLVE</button>
+                        </div>
+                        <div class="ai-response-display" id="ai-response-shell">
+                            <div class="ai-placeholder">
+                                <div class="ai-pulse-logo">Ω</div>
+                                <p>System idling. Enter a complex matrix or expression above to initialize algorithmic analysis.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="glass-card history-panel">
+                    <div class="panel-header">
+                        <span class="panel-title">TELEMETRY DATA LOGS</span>
+                        <button id="clear-history-btn" class="text-action-btn">PURGE LOGS</button>
+                    </div>
+                    <div class="search-bar-wrapper">
+                        <input type="text" id="history-search" placeholder="Filter chronological indices...">
+                    </div>
+                    <div class="history-stream" id="history-stream-container">
+                        </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <div class="notification-center" id="notification-center"></div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/particles.js"></script>
+    <script src="js/history.js"></script>
+    <script src="js/calculator.js"></script>
+    <script src="js/voice.js"></script>
+    <script src="js/ai.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
